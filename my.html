@@ -1,0 +1,464 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script><meta name=keywords content=国烨电商注册、国烨网注册、大宗商品免交易费、免费注册、智能交易、竞价交易、点价交易、即时信息推送、大宗商品供货、大宗商品求购、T+0结算、个人中心、大宗采购网。><meta name=description content=国烨电商,国烨大宗商品交易平台-以大宗商品交易为核心的全产业链服务商，为企业提供大宗商品现货交易平台、集采分销模式、大宗商品价格、化工原料交易市场价格行情、仓储及物流等服务。><script type=text/javascript>var IP = returnCitySN['cip'];
+  // var cityname = returnCitySN['cname'];
+  localStorage.setItem('IP', IP);
+  // localStorage.setItem('cityname', cityname);</script>
+  <script src=https://pic.chinayie.com/cdn/baiwang/jquery-1.9.1.js></script>
+  <script src=https://pic.chinayie.com/cdn/baiwang/jquery.cookie.js>
+  </script><script src=https://pic.chinayie.com/cdn/baiwang/fpdy.js></script>
+  <script src=https://pic.chinayie.com/cdn/baiwang/print.js></script>
+  <script src=https://pic.chinayie.com/cdn/baiwang/common.js></script>
+  <script src=https://pic.chinayie.com/cdn/baiwang/LodopFuncs.js></script>
+  <script language=JavaScript type=text/javascript>
+  if (location.href === 'https://www.chinayie.com/my.html#/login' || location.href === 'https://www.chinayie.com/my.html#/register') {
+      var _hmt = _hmt || [];
+      (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?077f2508986ed3d6f9dbe20b2eeda71f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+      })();
+  }
+    var LODOP; //声明为全局变量
+    // // 普票, y1 是否预览 true  预览;false 打印
+    // function printZpP1(y1) {
+    //     // LODOP = getLodop();
+    //     printZpP(jsonstr, y1);
+    // }
+    //
+    // // 专票  y1 是否预览 true  预览;false 打印
+    // function printZzPzp1(y1) {
+    //     // LODOP = getLodop();
+    //     var jsonstr =  "{\n" +
+    //         "    \"fplxdm\": \"004\",\n" +
+    //         "    \"fpdm\": \"1500000001\",\n" +
+    //         "    \"fphm\": \"35102262\",\n" +
+    //         "    \"kprq\": \"20181124091737\",\n" +
+    //         "    \"jqbh\": \"499000102897\",\n" +
+    //         "    \"skm\": \"03/-9>4080781>++10//<6674329*190<-15-68-8/*6+/1-3>4415+34<81770<<8011++-8413444</5*172127>070101740-039+0<6-492>\",\n" +
+    //         "    \"ghdwmc\": \"测试专票\",\n" +
+    //         "    \"ghdwdm\": \"123456789012345678\",\n" +
+    //         "    \"ghdwdzdh\": \"测试专票地址23539199\",\n" +
+    //         "    \"ghdwyhzh\": \"测试专票银行5556666\",\n" +
+    //         "    \"xhdwmc\": \"测试企业用户180\",\n" +
+    //         "    \"xhdwdm\": \"500102000000180\",\n" +
+    //         "    \"xhdwdzdh\": \"222\",\n" +
+    //         "    \"xhdwyhzh\": \"bbb\",\n" +
+    //         "    \"hjje\": 50.58,\n" +
+    //         "    \"se\": 2.13,\n" +
+    //         "    \"jshj\": 52.71,\n" +
+    //         "    \"bz\": \"测试专票清单\\n测试2\\n测试3\\n测试4\\n测试5\\n测试6\",\n" +
+    //         "    \"skr\": \"\",\n" +
+    //         "    \"fhr\": \"\",\n" +
+    //         "    \"kpr\": \"系统管理员\",\n" +
+    //         "    \"fpzt\": \"00\",\n" +
+    //         "    \"qdbz\": \"1\",\n" +
+    //         "    \"jym\": \"\",\n" +
+    //         "    \"mxzb\": [\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 5,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.25,\n" +
+    //         "            \"spmc\": \"*经营租赁*测试商品0222\",\n" +
+    //         "            \"ggxh\": \"11\",\n" +
+    //         "            \"dw\": \"1\",\n" +
+    //         "            \"spsl\": 5,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 3.81,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.19,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品2\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 4,\n" +
+    //         "            \"spdj\": 0.952381\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 7.77,\n" +
+    //         "            \"sl\": 0.03,\n" +
+    //         "            \"se\": 0.23,\n" +
+    //         "            \"spmc\": \"*经营租赁*测试商品2\",\n" +
+    //         "            \"ggxh\": \"规格型号2\",\n" +
+    //         "            \"dw\": \"单位\",\n" +
+    //         "            \"spsl\": 8,\n" +
+    //         "            \"spdj\": 0.970874\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 3,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.15,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 3,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 12,\n" +
+    //         "            \"sl\": 0.03,\n" +
+    //         "            \"se\": 0.36,\n" +
+    //         "            \"spmc\": \"*经营租赁*测试商品0222\",\n" +
+    //         "            \"ggxh\": \"222\",\n" +
+    //         "            \"dw\": \"222\",\n" +
+    //         "            \"spsl\": 6\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 2,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.1,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 2,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 9,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.45,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 9,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 7,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.35,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试商品1\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 7,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 3,\n" +
+    //         "            \"je\": 50.58,\n" +
+    //         "            \"se\": 2.13,\n" +
+    //         "            \"spmc\": \"（详见销货清单）\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 0,\n" +
+    //         "            \"spdj\": 0\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 1,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.05,\n" +
+    //         "            \"spmc\": \"*住宿服务*测试1\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 1,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        }\n" +
+    //         "    ],\n" +
+    //         "    \"ewm\": \"iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAIAAADeJhTwAAACc0lEQVR42u3aW47CMAwF0O5/08wKkOjU13bg5BONoM3JyPHjugLr9Wbd/Zuq7//k87u/e52yYMCAAaN5Ez9Zd78nAZN+hie/dfsdYcCAAeMgjKqNqAqMnQE/fSmAAQMGDBjZoNoZtKueEwYMGDBg1GzWk03pLEr+RACHAQMGjIcYiYCWDozppPL4qi0MGDBgFGIkeum/8Pkx0yEwYMCAUbhxiZUOdOnEsHPBgAEDxnaMdJI11WjanKzBgAEDxqkYU0G7KnmcKj4+OvWdSR8MGDBgFGKkmy1TF4F0syudqMKAAQPGRox0oS0xGJAeokg//0dZNwwYMGAsx5gKwomgOtVcehTwYcCAAWM5RqJRMzUoVpWIrSgUwoABA8ZyjDRYVQI11bBKNLjG/ntgwIAB4x8YVQ39qkRpQ/BPoMKAAQPGN2B0/ljVJqYTtPTBggEDBoxTMZ5sRGdyVNX0TxfyHh04GDBgwFiOkUjcxm4dAbCxpA8GDBgwDsJINN87C3lTDaWySwQMGDBgLMdIJEfpomFn8E80yq7EqYcBAwaMQYxthcJEklW1oZFCJAwYMGAsxOgcHkgPIVQVKKsOVlnVFgYMGDAWYlRtbucAQNUzJBprkUkRGDBgwFiOsXkTE8MDifeNd9NgwIABI4TxCq/OQFo1JJBulN3OumHAgAFjCcZUcE68cGfjaHMiDAMGDBgdGOkgmQ5i6WdLBHAYMGDA+AaM9LDB1KZsboLBgAEDBoyagLahkJcodMKAAQMGjAVJU+Di0DpoAQMGDBgHYSQGDzoLeVWbmL44wIABA8apGImiWCLpq3qZzuGHxAGCAQMGjGaMP5Upvtu80A0iAAAAAElFTkSuQmCC\"\n" +
+    //         "}";
+    //     printZzP(jsonstr, y1);
+    // }
+    //
+    // // 普票 的清单预览
+    // function printZzsPpqd1(y1 ){
+    //     // LODOP = getLodop();
+    //     var jsonstr = "{\n" +
+    //         "    \"fplxdm\": \"007\",\n" +
+    //         "    \"fpdm\": \"050000000003\",\n" +
+    //         "    \"fphm\": \"70986781\",\n" +
+    //         "    \"kprq\": \"20190219152522\",\n" +
+    //         "    \"jqbh\": \"499000102897\",\n" +
+    //         "    \"skm\": \"03</+6+8734619844/>917+-*/<-6870/645<123036+//405/*3+-<2*91/816*8-+>6<6<<6>+292<8+240>8<5*9<7401940-0685<48*0<85\",\n" +
+    //         "    \"ghdwmc\": \"上海百旺金赋科技有限公司\",\n" +
+    //         "    \"ghdwdm\": \"91310104057643445Y\",\n" +
+    //         "    \"ghdwdzdh\": \"上海市徐汇区古美路1528号A4幢7层021-23539199\",\n" +
+    //         "    \"ghdwyhzh\": \"工行漕河泾开发区支行1001 2663 1920 0354 344\",\n" +
+    //         "    \"xhdwmc\": \"测试企业用户180\",\n" +
+    //         "    \"xhdwdm\": \"500102000000180\",\n" +
+    //         "    \"xhdwdzdh\": \"11\",\n" +
+    //         "    \"xhdwyhzh\": \"11\",\n" +
+    //         "    \"hjje\": 775816.6,\n" +
+    //         "    \"se\": 77420.42,\n" +
+    //         "    \"jshj\": 853237.02,\n" +
+    //         "    \"bz\": \"测试普票清单明细\",\n" +
+    //         "    \"skr\": \"测试员\",\n" +
+    //         "    \"fhr\": \"测试2\",\n" +
+    //         "    \"kpr\": \"系统管理员\",\n" +
+    //         "    \"fpzt\": \"00\",\n" +
+    //         "    \"qdbz\": \"1\",\n" +
+    //         "    \"jym\": \"17368739268184674965\",\n" +
+    //         "    \"mxzb\": [\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 718.05,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 35.9,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品2\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 753.951846,\n" +
+    //         "            \"spdj\": 0.952381\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 632609.13,\n" +
+    //         "            \"sl\": 0.1,\n" +
+    //         "            \"se\": 63260.91,\n" +
+    //         "            \"spmc\": \"*电信服务*月租费\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 741.852963,\n" +
+    //         "            \"spdj\": 852.74193\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 137.4,\n" +
+    //         "            \"sl\": 0.03,\n" +
+    //         "            \"se\": 4.12,\n" +
+    //         "            \"spmc\": \"*谷物*对对对\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 12.3654486,\n" +
+    //         "            \"spdj\": 11.1112232\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 1122.3,\n" +
+    //         "            \"sl\": 0.06,\n" +
+    //         "            \"se\": 67.34,\n" +
+    //         "            \"spmc\": \"*电信服务*上网费\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 112.23,\n" +
+    //         "            \"spdj\": 10\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 987.65,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 49.38,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 987.654321,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 12.16,\n" +
+    //         "            \"sl\": 0.1,\n" +
+    //         "            \"se\": 1.22,\n" +
+    //         "            \"spmc\": \"*谷物*反反复复\",\n" +
+    //         "            \"ggxh\": \"1\",\n" +
+    //         "            \"dw\": \"1\",\n" +
+    //         "            \"spsl\": 1.234567,\n" +
+    //         "            \"spdj\": 9.852741\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 2.62,\n" +
+    //         "            \"sl\": 0.06,\n" +
+    //         "            \"se\": 0.16,\n" +
+    //         "            \"spmc\": \"*旅游服务*旅游服务\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 2.123456,\n" +
+    //         "            \"spdj\": 1.234698\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 3,\n" +
+    //         "            \"je\": 775816.6,\n" +
+    //         "            \"se\": 77420.42,\n" +
+    //         "            \"spmc\": \"（详见销货清单）\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 0,\n" +
+    //         "            \"spdj\": 0\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 426.84,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 21.34,\n" +
+    //         "            \"spmc\": \"*住宿服务*测试1\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 1.234567,\n" +
+    //         "            \"spdj\": 345.741852111\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 139800.45,\n" +
+    //         "            \"sl\": 0.1,\n" +
+    //         "            \"se\": 13980.05,\n" +
+    //         "            \"spmc\": \"*经营租赁*测试商品\",\n" +
+    //         "            \"ggxh\": \"规格型号\",\n" +
+    //         "            \"dw\": \"单位\",\n" +
+    //         "            \"spsl\": 1.24563,\n" +
+    //         "            \"spdj\": 112232.727273\n" +
+    //         "        }\n" +
+    //         "    ],\n" +
+    //         "    \"ewm\": \"iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAIAAAD6XpeDAAADC0lEQVR42u3bUW6DMBAEUO5/6fQCrRpgZu2Qx2eU1MYPyetZehyF63Xyeue3qbHeGfedsc7O4fiUCx48ePC+BK+xEO0buDOHOxipce+MBQ8ePHjwMniphWsvaOq3q/DurDM8ePDgwdsXr/1ANA7X7YcJHjx48OA9E68RFqfy20YgAA8ePHjwPgOv0dhsb+yrkB7bVYAHDx68B+NNNki/+fOtL0jw4MF7MN6rfO2wme/cyL11v/DgwYMH7/L9pjbYNnYDvhEut9cTHjx48OCdw2sUBanCob2IOwTWt74PDx48ePCufr/yT5GNw+/ky1Ht79wCgwcPHjx48TxzckNufKfxkG1RTMGDBw8evAheauD64XQwQG8H06fHggcPHjx4cbx2eN1uuk4GEY05/7mG8ODBgwfv8j66qkBo/P0dQudGSL3F4sKDBw/eA/BSgXWjeEkdtNtzW1XEwYMHDx68c/NPBbKTQfAORdCyYBoePHjw4EX6ee1Dd6q42KG5OtlkfqurAA8ePHjwIu+zrGpUTh6WVxVQlVQFHjx48ODFN/8UfKpwaIfFuz188ODBgwfveg+vfYiefBJT47aD6VsHc3jw4MGDd7kZ22i0rjr4NzBSRUpsnvDgwYMH79/PJ4PXyc28ES6nipTKIR0ePHjw4FXxGpNuNIonF3QyvIYHDx48ePHa4liFdKdYaDeTG8F0I9CABw8ePHj5w2/jMLtDQ7URlNfXDR48ePDgVZuxk4ueKqbahUO74QwPHjx48NbgpQ7UjYcgFQ40AuXYfcGDBw8evMt47ZeLJjf/FFi7WRrrqsODBw8evF/HepWvRhNyMhCfnOfp4AIePHjw4KXz3kpzshEWrwqU2y8v1cHgwYMH7wvxGuFsOxROFU2NsHi0sIIHDx48eJfxGhv1qqZlo1E8WQGe7irAgwcPHrzleKsamymMyWSk/vYYPHjw4MH7iEC2HSa0G8uVkAEePHjw4C0Pphsv3rSLjtS4k8ECPHjw4MGLn30rhU+jmdkoIiaLtWPVBQ8ePHjPxfsB+KZ4c8qUhnkAAAAASUVORK5CYII=\"\n" +
+    //         "}";
+    //     PrintZppQD(jsonstr,y1);
+    // }
+    //
+    // // 专票的清单预览
+    // function printZzsZpqd1(y1){
+    //     // LODOP = getLodop();
+    //     var jsonstr =  "{\n" +
+    //         "    \"fplxdm\": \"004\",\n" +
+    //         "    \"fpdm\": \"1500000001\",\n" +
+    //         "    \"fphm\": \"35102262\",\n" +
+    //         "    \"kprq\": \"20181124091737\",\n" +
+    //         "    \"jqbh\": \"499000102897\",\n" +
+    //         "    \"skm\": \"03/-9>4080781>++10//<6674329*190<-15-68-8/*6+/1-3>4415+34<81770<<8011++-8413444</5*172127>070101740-039+0<6-492>\",\n" +
+    //         "    \"ghdwmc\": \"测试专票\",\n" +
+    //         "    \"ghdwdm\": \"123456789012345678\",\n" +
+    //         "    \"ghdwdzdh\": \"测试专票地址23539199\",\n" +
+    //         "    \"ghdwyhzh\": \"测试专票银行5556666\",\n" +
+    //         "    \"xhdwmc\": \"测试企业用户180\",\n" +
+    //         "    \"xhdwdm\": \"500102000000180\",\n" +
+    //         "    \"xhdwdzdh\": \"222\",\n" +
+    //         "    \"xhdwyhzh\": \"bbb\",\n" +
+    //         "    \"hjje\": 50.58,\n" +
+    //         "    \"se\": 2.13,\n" +
+    //         "    \"jshj\": 52.71,\n" +
+    //         "    \"bz\": \"测试专票清单\",\n" +
+    //         "    \"skr\": \"\",\n" +
+    //         "    \"fhr\": \"\",\n" +
+    //         "    \"kpr\": \"系统管理员\",\n" +
+    //         "    \"fpzt\": \"00\",\n" +
+    //         "    \"qdbz\": \"1\",\n" +
+    //         "    \"jym\": \"\",\n" +
+    //         "    \"mxzb\": [\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 5,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.25,\n" +
+    //         "            \"spmc\": \"*经营租赁*测试商品0222\",\n" +
+    //         "            \"ggxh\": \"11\",\n" +
+    //         "            \"dw\": \"1\",\n" +
+    //         "            \"spsl\": 5,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 3.81,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.19,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品2\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 4,\n" +
+    //         "            \"spdj\": 0.952381\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 7.77,\n" +
+    //         "            \"sl\": 0.03,\n" +
+    //         "            \"se\": 0.23,\n" +
+    //         "            \"spmc\": \"*经营租赁*测试商品2\",\n" +
+    //         "            \"ggxh\": \"规格型号2\",\n" +
+    //         "            \"dw\": \"单位\",\n" +
+    //         "            \"spsl\": 8,\n" +
+    //         "            \"spdj\": 0.970874\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 3,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.15,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 3,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 12,\n" +
+    //         "            \"sl\": 0.03,\n" +
+    //         "            \"se\": 0.36,\n" +
+    //         "            \"spmc\": \"*经营租赁*测试商品0222\",\n" +
+    //         "            \"ggxh\": \"222\",\n" +
+    //         "            \"dw\": \"222\",\n" +
+    //         "            \"spsl\": 6\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 2,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.1,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 2,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 9,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.45,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试品\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 9,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 7,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.35,\n" +
+    //         "            \"spmc\": \"*旅游服务*测试商品1\",\n" +
+    //         "            \"ggxh\": \"测试规格\",\n" +
+    //         "            \"dw\": \"个\",\n" +
+    //         "            \"spsl\": 7,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 3,\n" +
+    //         "            \"je\": 50.58,\n" +
+    //         "            \"se\": 2.13,\n" +
+    //         "            \"spmc\": \"（详见销货清单）\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 0,\n" +
+    //         "            \"spdj\": 0\n" +
+    //         "        },\n" +
+    //         "        {\n" +
+    //         "            \"fphxz\": 0,\n" +
+    //         "            \"je\": 1,\n" +
+    //         "            \"sl\": 0.05,\n" +
+    //         "            \"se\": 0.05,\n" +
+    //         "            \"spmc\": \"*住宿服务*测试1\",\n" +
+    //         "            \"ggxh\": \"\",\n" +
+    //         "            \"dw\": \"\",\n" +
+    //         "            \"spsl\": 1,\n" +
+    //         "            \"spdj\": 1\n" +
+    //         "        }\n" +
+    //         "    ],\n" +
+    //         "    \"ewm\": \"iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAIAAADeJhTwAAACc0lEQVR42u3aW47CMAwF0O5/08wKkOjU13bg5BONoM3JyPHjugLr9Wbd/Zuq7//k87u/e52yYMCAAaN5Ez9Zd78nAZN+hie/dfsdYcCAAeMgjKqNqAqMnQE/fSmAAQMGDBjZoNoZtKueEwYMGDBg1GzWk03pLEr+RACHAQMGjIcYiYCWDozppPL4qi0MGDBgFGIkeum/8Pkx0yEwYMCAUbhxiZUOdOnEsHPBgAEDxnaMdJI11WjanKzBgAEDxqkYU0G7KnmcKj4+OvWdSR8MGDBgFGKkmy1TF4F0syudqMKAAQPGRox0oS0xGJAeokg//0dZNwwYMGAsx5gKwomgOtVcehTwYcCAAWM5RqJRMzUoVpWIrSgUwoABA8ZyjDRYVQI11bBKNLjG/ntgwIAB4x8YVQ39qkRpQ/BPoMKAAQPGN2B0/ljVJqYTtPTBggEDBoxTMZ5sRGdyVNX0TxfyHh04GDBgwFiOkUjcxm4dAbCxpA8GDBgwDsJINN87C3lTDaWySwQMGDBgLMdIJEfpomFn8E80yq7EqYcBAwaMQYxthcJEklW1oZFCJAwYMGAsxOgcHkgPIVQVKKsOVlnVFgYMGDAWYlRtbucAQNUzJBprkUkRGDBgwFiOsXkTE8MDifeNd9NgwIABI4TxCq/OQFo1JJBulN3OumHAgAFjCcZUcE68cGfjaHMiDAMGDBgdGOkgmQ5i6WdLBHAYMGDA+AaM9LDB1KZsboLBgAEDBoyagLahkJcodMKAAQMGjAVJU+Di0DpoAQMGDBgHYSQGDzoLeVWbmL44wIABA8apGImiWCLpq3qZzuGHxAGCAQMGjGaMP5Upvtu80A0iAAAAAElFTkSuQmCC\"\n" +
+    //         "}";
+    //     PrintZzpQD(jsonstr,y1);
+    // }
+    //
+    // // 使用 ajax 根据 fpdm,fphm ，获取 发票信息,执行打印/预览,路径根据实际项目更改
+    // function printZzsPP_yl(id,y1){
+    //     // LODOP = getLodop();
+    //     $.get(ctx + "/xxfp/orderinfo/zzspp/oneDetail.do", "id="+id, function(json){
+    //         printZpP(json, y1);
+    //     });
+    // }</script><title>国烨跨境电务</title><link rel=icon href=/favicon.ico><link href=./static/css/app.e8cc839885d27d031ce4023c3874332a.css rel=stylesheet></head><body><section id=gymycenter></section><script type=text/javascript src=./static/js/manifest.8c21ccd23248c1fdbb9d.js></script><script type=text/javascript src=./static/js/vendor.9a105b458c89cfe2bf3a.js></script><script type=text/javascript src=./static/js/app.2021288b7a23f22c6d05.js></script></body></html>
